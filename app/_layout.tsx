@@ -4,7 +4,10 @@ import { StatusBar } from 'expo-status-bar';
 import { useFrameworkReady } from '@/hooks/useFrameworkReady';
 import { ThemeProvider } from '@/context/ThemeContext';
 import { ProjectsProvider } from '@/context/ProjectsContext';
+<<<<<<< HEAD
 import { AIProvider } from '@/context/AIContext';
+=======
+>>>>>>> f628cf64b8a50cf27ecbf0e5815e5afcd4c080b1
 import {
   useFonts,
   Inter_400Regular,
@@ -36,6 +39,7 @@ export default function RootLayout() {
 
   return (
     <ThemeProvider>
+<<<<<<< HEAD
       <AIProvider>
         <ProjectsProvider>
           <StatusBar hidden={true} />
@@ -46,6 +50,15 @@ export default function RootLayout() {
           </Stack>
         </ProjectsProvider>
       </AIProvider>
+=======
+      <ProjectsProvider>
+        <StatusBar style="auto" />
+        <Stack screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="+not-found" options={{ title: 'Oops!' }} />
+        </Stack>
+      </ProjectsProvider>
+>>>>>>> f628cf64b8a50cf27ecbf0e5815e5afcd4c080b1
     </ThemeProvider>
   );
 }

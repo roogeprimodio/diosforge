@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 import React, { createContext, useContext, useReducer, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+=======
+import React, { createContext, useContext, useReducer } from 'react';
+>>>>>>> f628cf64b8a50cf27ecbf0e5815e5afcd4c080b1
 
 export interface Project {
   id: string;
@@ -13,7 +17,10 @@ interface ProjectsState {
 }
 
 type ProjectsAction = 
+<<<<<<< HEAD
   | { type: 'LOAD_PROJECTS'; payload: Project[] }
+=======
+>>>>>>> f628cf64b8a50cf27ecbf0e5815e5afcd4c080b1
   | { type: 'ADD_PROJECT'; payload: Omit<Project, 'id' | 'createdAt'> }
   | { type: 'EDIT_PROJECT'; payload: { id: string; name: string; details: string } }
   | { type: 'DELETE_PROJECT'; payload: string };  // Changed payload type to just string
@@ -29,8 +36,11 @@ const ProjectsContext = createContext<ProjectsContextType | undefined>(undefined
 
 const projectsReducer = (state: ProjectsState, action: ProjectsAction): ProjectsState => {
   switch (action.type) {
+<<<<<<< HEAD
     case 'LOAD_PROJECTS':
       return { ...state, projects: action.payload };
+=======
+>>>>>>> f628cf64b8a50cf27ecbf0e5815e5afcd4c080b1
     case 'ADD_PROJECT':
       return {
         ...state,
@@ -68,6 +78,7 @@ const projectsReducer = (state: ProjectsState, action: ProjectsAction): Projects
 
 export const ProjectsProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [state, dispatch] = useReducer(projectsReducer, { projects: [] });
+<<<<<<< HEAD
 
   // Load projects from AsyncStorage on mount
   useEffect(() => {
@@ -100,6 +111,21 @@ export const ProjectsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     dispatch({ type: 'DELETE_PROJECT', payload: id });
   };
 
+=======
+  
+  const addProject = (project: Omit<Project, 'id' | 'createdAt'>) => {
+    dispatch({ type: 'ADD_PROJECT', payload: project });
+  };
+  
+  const editProject = (id: string, name: string, details: string) => {
+    dispatch({ type: 'EDIT_PROJECT', payload: { id, name, details } });
+  };
+  
+  const deleteProject = (id: string) => {
+    dispatch({ type: 'DELETE_PROJECT', payload: id });  // Changed to pass just the id
+  };
+  
+>>>>>>> f628cf64b8a50cf27ecbf0e5815e5afcd4c080b1
   return (
     <ProjectsContext.Provider value={{ state, addProject, editProject, deleteProject }}>
       {children}

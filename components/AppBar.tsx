@@ -3,6 +3,7 @@ import { Sun, Moon } from 'lucide-react-native';
 import { useTheme } from '@/context/ThemeContext';
 import Animated, { useAnimatedStyle, withTiming } from 'react-native-reanimated';
 
+<<<<<<< HEAD
 interface AppBarProps {
   title?: string;
   rightButton?: React.ReactNode;
@@ -11,6 +12,9 @@ interface AppBarProps {
 }
 
 export function AppBar({ title, rightButton, showBackButton, onBack }: AppBarProps) {
+=======
+export function AppBar() {
+>>>>>>> f628cf64b8a50cf27ecbf0e5815e5afcd4c080b1
   const { theme, toggleTheme, colors } = useTheme();
   
   const iconAnimatedStyle = useAnimatedStyle(() => {
@@ -21,6 +25,7 @@ export function AppBar({ title, rightButton, showBackButton, onBack }: AppBarPro
 
   return (
     <View style={[styles.container, { backgroundColor: colors.surface }]}>
+<<<<<<< HEAD
       <View style={{ flexDirection: 'row', alignItems: 'center' }}>
         {showBackButton && (
           <Pressable onPress={onBack} style={styles.backButton}>
@@ -50,13 +55,35 @@ export function AppBar({ title, rightButton, showBackButton, onBack }: AppBarPro
           </Pressable>
         )}
       </View>
+=======
+      <Text style={[styles.title, { color: colors.primary }]}>Creative Studio</Text>
+      <Pressable 
+        onPress={toggleTheme} 
+        style={({ pressed }) => [
+          styles.themeToggle,
+          { opacity: pressed ? 0.7 : 1, backgroundColor: colors.primary + '20' }
+        ]}
+      >
+        <Animated.View style={iconAnimatedStyle}>
+          {theme === 'light' ? (
+            <Sun size={22} color={colors.primary} />
+          ) : (
+            <Moon size={22} color={colors.primary} />
+          )}
+        </Animated.View>
+      </Pressable>
+>>>>>>> f628cf64b8a50cf27ecbf0e5815e5afcd4c080b1
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+<<<<<<< HEAD
     height: 80,
+=======
+    height: 60,
+>>>>>>> f628cf64b8a50cf27ecbf0e5815e5afcd4c080b1
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -74,6 +101,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontFamily: 'Inter-SemiBold',
+<<<<<<< HEAD
     fontSize: 26,
     marginLeft: 8,
   },
@@ -86,6 +114,9 @@ const styles = StyleSheet.create({
   backButtonText: {
     fontSize: 22,
     fontWeight: 'bold',
+=======
+    fontSize: 18,
+>>>>>>> f628cf64b8a50cf27ecbf0e5815e5afcd4c080b1
   },
   themeToggle: {
     width: 40,
@@ -94,8 +125,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+<<<<<<< HEAD
   rightContainer: {
     flexDirection: 'row',
     alignItems: 'center',
   },
+=======
+>>>>>>> f628cf64b8a50cf27ecbf0e5815e5afcd4c080b1
 });

@@ -4,7 +4,10 @@ import { useTheme } from '@/context/ThemeContext';
 import { useProjects, Project } from '@/context/ProjectsContext';
 import { ProjectBottomSheet } from './ProjectBottomSheet';
 import { CreditCard as Edit, Trash2, Eye } from 'lucide-react-native';
+<<<<<<< HEAD
 import { useRouter } from 'expo-router';
+=======
+>>>>>>> f628cf64b8a50cf27ecbf0e5815e5afcd4c080b1
 import Animated, { 
   FadeIn, 
   FadeOut,
@@ -21,7 +24,10 @@ export function ProjectCard({ project }: ProjectCardProps) {
   const { colors } = useTheme();
   const { deleteProject } = useProjects();
   const [isEditModalVisible, setIsEditModalVisible] = useState(false);
+<<<<<<< HEAD
   const router = useRouter();
+=======
+>>>>>>> f628cf64b8a50cf27ecbf0e5815e5afcd4c080b1
   
   // Animation values
   const scale = useSharedValue(1);
@@ -56,6 +62,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
   };
 
   const handleInspect = () => {
+<<<<<<< HEAD
     // Navigate to project-details screen with params
     router.push({
       pathname: '/project-details',
@@ -69,6 +76,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
   };
 
 
+=======
+    Alert.alert("Coming Soon", "Inspect functionality will be implemented later");
+  };
+
+>>>>>>> f628cf64b8a50cf27ecbf0e5815e5afcd4c080b1
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
     return date.toLocaleDateString('en-US', { 
